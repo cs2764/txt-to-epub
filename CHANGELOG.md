@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-01-26
+
+### Fixed
+- **Critical Bug Fix** 🐛 Fixed gradio compatibility issue causing TypeError in chapter detection
+- **Gradio Version**: Downgraded from 4.25.0 to 4.20.0 for enhanced stability
+- **Preview Functionality**: Resolved "argument of type 'bool' is not iterable" error
+- **ASGI Exceptions**: Fixed application crashes during chapter preview operations
+- **Auto-Compatibility**: Automatically installs compatible gradio-client 0.11.0
+
+### Changed
+- Updated requirements.txt with stable gradio versions
+- Improved error handling in chapter detection workflow
+
+---
+
 ## [0.1.0] - 2025-01-26
 
 ### Added

@@ -17,7 +17,7 @@ with open(os.path.join(this_directory, 'requirements.txt'), encoding='utf-8') as
 
 setup(
     name="txt-to-epub-converter",
-    version="0.1.0",
+    version="0.1.1",
     author="AI Development Team",
     author_email="",
     description="An intelligent tool for converting TXT files to EPUB format with smart chapter detection",

@@ -17,7 +17,7 @@ UI_TEXT = {
         "output_header": "6. Output Location", "output_path_label": "Output Folder Path (Optional)",
         "output_path_info": "If blank, files are saved to an 'epub_output' folder.", "save_to_source": "Save to Source File Location",
         "start_button": "Start Conversion",
-        "chapter_preview_header": "Chapter Preview", "results_header": "Results", "log_header": "Log", "version": "Version 0.1.0",
+        "chapter_preview_header": "Chapter Preview", "results_header": "Results", "log_header": "Log", "version": "Version 0.1.1",
         "lang_select": "Language / 语言",
     },
     "zh": {
@@ -29,7 +29,7 @@ UI_TEXT = {
         "output_header": "6. 输出位置", "output_path_label": "输出文件夹路径（可选）",
         "output_path_info": "如果留空，文件将保存到 'epub_output' 文件夹中。", "save_to_source": "保存到源文件位置",
         "start_button": "开始转换",
-        "chapter_preview_header": "章节预览", "results_header": "结果", "log_header": "日志", "version": "版本 0.1.0",
+        "chapter_preview_header": "章节预览", "results_header": "结果", "log_header": "日志", "version": "版本 0.1.1",
         "lang_select": "Language / 语言",
     }
 }

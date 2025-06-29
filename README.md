@@ -252,4 +252,4 @@ This project was created entirely through AI-powered development using `gemini_c
 
 ## 版本
 
-*   当前版本：0.1.0
+*   当前版本：0.1.1
