@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-01-26
+
+### Fixed
+- **🌐 Connection Fix**: Resolved gradio.live public link issue causing "Connection errored out" errors
+- **🔗 Local Server**: Changed from `share=True` to `share=False` for stable local connection
+- **📚 Dependency Stability**: Downgraded to Gradio 3.50.2 with compatible dependency versions:
+  - gradio==3.50.2 (stable release)
+  - fastapi==0.104.1  
+  - pydantic==2.4.2
+  - starlette==0.27.0
+  - uvicorn==0.24.0
+- **🛠️ ASGI Errors**: Fixed PydanticSchemaGenerationError and FastAPI compatibility issues
+- **📱 Progress API**: Removed incompatible `gr.Progress` for Gradio 3.x compatibility
+
+### Added
+- **📍 Address Display**: Clear local/network access URLs in startup scripts and application
+- **🔗 GitHub Integration**: Added project repository links to WebUI interface (bilingual)
+- **🧭 README Navigation**: Enhanced documentation with language switching and quick navigation
+- **📋 User Guidance**: Improved startup messages with connection URLs
+
+### Technical
+- **Local Access**: `http://localhost:7860` (primary)
+- **Network Access**: `http://0.0.0.0:7860` (same network devices)
+- **Offline Mode**: No external dependencies for core functionality
+- **Stable Stack**: Tested dependency combination for Windows/macOS/Linux
+
+---
+
 ## [0.1.1] - 2025-01-26
 
 ### Fixed

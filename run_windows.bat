@@ -65,6 +65,8 @@ REM Run the application
 echo [4/4] Starting TXT to EPUB Converter...
 echo.
 echo The application will open in your default web browser.
+echo Local access: http://localhost:7860
+echo Network access: http://0.0.0.0:7860
 echo Press Ctrl+C to stop the application.
 echo.
 python webui.py

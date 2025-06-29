@@ -1,5 +1,25 @@
 # TXT to EPUB Converter
 
+> **Language / 语言:** [English](#txt-to-epub-converter) | [中文说明](#txt-转-epub-转换器)
+> 
+> **Project Repository / 项目地址:** [https://github.com/cs2764/txt-to-epub](https://github.com/cs2764/txt-to-epub)
+
+## 📋 Quick Navigation / 快速导航
+
+### English Documentation
+- [🚀 Quick Start](#quick-start-recommended) - Get up and running in minutes
+- [📖 Features](#features) - What this tool can do
+- [🛠️ Manual Installation](#manual-installation) - Step-by-step setup
+- [❓ Troubleshooting](#troubleshooting) - Common issues and solutions
+
+### 中文文档  
+- [🚀 快速开始](#快速开始推荐) - 几分钟内启动运行
+- [📖 功能特性](#功能特性) - 工具功能介绍
+- [🛠️ 手动安装](#手动安装) - 详细安装步骤
+- [❓ 故障排除](#故障排除) - 常见问题解决方案
+
+---
+
 This is a powerful and intelligent tool for converting plain text (`.txt`) files into EPUB format. The application is built with Gradio, providing a user-friendly web interface for batch processing, text cleaning, and advanced chapter detection.
 
 ## Features
@@ -101,6 +121,10 @@ These scripts will automatically:
 ---
 
 # TXT 转 EPUB 转换器
+
+> **Language / 语言:** [English](#txt-to-epub-converter) | [中文说明](#txt-转-epub-转换器)
+> 
+> **Project Repository / 项目地址:** [https://github.com/cs2764/txt-to-epub](https://github.com/cs2764/txt-to-epub)
 
 这是一个功能强大且智能的工具，用于将纯文本（`.txt`）文件转换为 EPUB 格式。该应用程序基于 Gradio 构建，提供了一个用户友好的 Web 界面，支持批量处理、文本清理和先进的章节检测。
 
@@ -252,4 +276,4 @@ This project was created entirely through AI-powered development using `gemini_c
 
 ## 版本
 
-*   当前版本：0.1.1
+*   当前版本：0.1.2

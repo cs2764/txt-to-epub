@@ -17,8 +17,8 @@ UI_TEXT = {
         "output_header": "6. Output Location", "output_path_label": "Output Folder Path (Optional)",
         "output_path_info": "If blank, files are saved to an 'epub_output' folder.", "save_to_source": "Save to Source File Location",
         "start_button": "Start Conversion",
-        "chapter_preview_header": "Chapter Preview", "results_header": "Results", "log_header": "Log", "version": "Version 0.1.1",
-        "lang_select": "Language / 语言",
+        "chapter_preview_header": "Chapter Preview", "results_header": "Results", "log_header": "Log", "version": "Version 0.1.2",
+        "lang_select": "Language / 语言", "github_link": "📦 GitHub Repository: https://github.com/cs2764/txt-to-epub",
     },
     "zh": {
         "title": "TXT 转 EPUB 批量转换器", "upload_label": "1. 上传 TXT 文件", "cleaning_label": "2. 清理选项",
@@ -29,8 +29,8 @@ UI_TEXT = {
         "output_header": "6. 输出位置", "output_path_label": "输出文件夹路径（可选）",
         "output_path_info": "如果留空，文件将保存到 'epub_output' 文件夹中。", "save_to_source": "保存到源文件位置",
         "start_button": "开始转换",
-        "chapter_preview_header": "章节预览", "results_header": "结果", "log_header": "日志", "version": "版本 0.1.1",
-        "lang_select": "Language / 语言",
+        "chapter_preview_header": "章节预览", "results_header": "结果", "log_header": "日志", "version": "版本 0.1.2",
+        "lang_select": "Language / 语言", "github_link": "📦 GitHub 项目地址：https://github.com/cs2764/txt-to-epub",
     }
 }
 
@@ -107,7 +107,7 @@ def convert_to_epub(text, filename, author, cover_image_path, chapters):
     book.add_item(epub.EpubNcx()); book.add_item(epub.EpubNav())
     return book
 
-def process_files_and_convert(files, clean_options, detection_mode, custom_rule, author, cover_image, save_to_source, custom_path, lang_key, progress=gr.Progress(track_tqdm=True)):
+def process_files_and_convert(files, clean_options, detection_mode, custom_rule, author, cover_image, save_to_source, custom_path, lang_key):
     if not files: return [], "Please upload at least one TXT file.", ""
     
     # Default output directory
@@ -210,7 +210,9 @@ def create_ui(lang_key):
                 chapter_preview_output = gr.Markdown(label=LANG["chapter_preview_header"])
                 results_output = gr.Dataframe(headers=["Source File", "Output Path", "Status"], label=LANG["results_header"], row_count=10)
                 log_output = gr.Textbox(label=LANG["log_header"], lines=15, interactive=False)
-        gr.Markdown("---"); gr.Markdown(LANG["version"])
+        gr.Markdown("---")
+        version_info = gr.Markdown(LANG["version"])
+        github_info = gr.Markdown(LANG["github_link"])
 
         # --- Event Handlers ---
         detection_mode.change(lambda x: gr.update(visible=x == LANG["custom_regex_mode"]), detection_mode, custom_rule_input)
@@ -231,7 +233,7 @@ def create_ui(lang_key):
         components_to_update = [
             file_input, cleaning_options, detection_mode, custom_rule_input, preview_button,
             author_input, cover_image_input, save_to_source_checkbox, custom_path_input, start_button,
-            chapter_preview_output, results_output, log_output
+            chapter_preview_output, results_output, log_output, version_info, github_info
         ]
         
         def update_lang_func(lang_key_new):
@@ -251,6 +253,8 @@ def create_ui(lang_key):
                 gr.update(label=NEW_LANG["chapter_preview_header"]),
                 gr.update(label=NEW_LANG["results_header"]),
                 gr.update(label=NEW_LANG["log_header"]),
+                gr.update(value=NEW_LANG["version"]),
+                gr.update(value=NEW_LANG["github_link"]),
             )
 
         lang_radio.change(
@@ -262,4 +266,8 @@ def create_ui(lang_key):
 
 if __name__ == "__main__":
     app = create_ui("zh") # Start with Chinese as default
-    app.launch(inbrowser=True, server_name="0.0.0.0", share=True)
+    print("🚀 Starting TXT to EPUB Converter...")
+    print("📍 Local access: http://localhost:7860")
+    print("🌐 Network access: http://0.0.0.0:7860")
+    print("⚠️  Using local server for better stability")
+    app.launch(inbrowser=True, server_name="0.0.0.0", share=False)
