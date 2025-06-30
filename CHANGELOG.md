@@ -5,6 +5,57 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2025-01-27
+
+### Added
+- **📄 File Content Preview**: New feature to preview the first 10 lines of selected files
+  - Shows file information (name, size, encoding, detection method)
+  - Displays line numbers and handles empty lines
+  - Provides encoding confidence warnings for better user guidance
+- **🔍 Enhanced Encoding Detection**: Comprehensive multi-method encoding detection system
+  - BOM (Byte Order Mark) detection for UTF variants
+  - chardet library integration for automatic detection
+  - Chinese character ratio analysis for better Asian text handling
+  - Fallback mechanisms with multiple common encodings
+  - Supports: UTF-8, GBK, GB2312, Big5, UTF-16, UTF-32, ASCII
+- **📁 Improved File Selection System**: Individual file management instead of bulk selection
+  - "Add File to List" functionality for one-by-one file addition
+  - File list display with size information
+  - "Clear All" button to remove all selected files
+  - Duplicate file detection and prevention
+  - Bilingual file management interface
+
+### Fixed
+- **🐛 Gradio Compatibility**: Resolved `AttributeError: 'State' object has no attribute 'change'`
+  - Fixed compatibility issues with Gradio 3.50.2
+  - Removed unsupported `file_list_state.change()` event handler
+  - Modified functions to return preview content directly
+- **📝 Syntax Errors**: Fixed Chinese quote character issues in UI_TEXT dictionary
+  - Resolved string literal syntax errors in Chinese interface text
+  - Improved text encoding handling throughout the application
+- **🔧 UI Event Handling**: Enhanced event handler management for better user experience
+  - Updated event outputs to include file preview updates
+  - Improved state management for file selection workflow
+
+### Enhanced
+- **🌐 Bilingual Support**: Improved Chinese and English language switching
+  - Better text encoding for Chinese characters in UI
+  - Enhanced file preview display in both languages
+  - Improved error messages and user guidance
+- **📊 User Experience**: Better visual feedback and information display
+  - Real-time file content preview when files are added
+  - Detailed encoding information with confidence levels
+  - Warning indicators for low-confidence encoding detection
+  - Improved file list formatting with size information
+
+### Technical
+- **Encoding Detection Methods**: BOM detection → chardet → pattern matching → fallback
+- **File Management**: Individual file selection with list-based state management
+- **Error Handling**: Enhanced error recovery and user feedback systems
+- **UI Responsiveness**: Improved component updates and state synchronization
+
+---
+
 ## [0.1.2] - 2025-01-26
 
 ### Fixed

@@ -2,7 +2,7 @@
 Version information for TXT to EPUB Converter
 """
 
-__version__ = "0.1.2"
+__version__ = "0.1.4"
 __version_info__ = tuple(map(int, __version__.split('.')))
 
 # Release information
@@ -17,7 +17,7 @@ __description__ = "An intelligent tool for converting TXT files to EPUB format w
 __url__ = "https://github.com/cs2764/txt-to-epub"
 
 # Build information
-__build_date__ = "2025-01-26"
+__build_date__ = "2025-01-27"
 __python_requires__ = ">=3.10"
 
 def get_version():
