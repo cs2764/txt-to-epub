@@ -116,7 +116,7 @@ These scripts will automatically:
 
 ## Version
 
-*   Current Version: 0.1
+*   Current Version: 0.1.2
 
 ---
 

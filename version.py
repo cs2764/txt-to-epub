@@ -14,7 +14,7 @@ __copyright__ = "Copyright (c) 2025 TXT to EPUB Converter"
 # Project information
 __title__ = "TXT to EPUB Converter"
 __description__ = "An intelligent tool for converting TXT files to EPUB format with smart chapter detection"
-__url__ = "https://github.com/your-username/txt-to-epub"
+__url__ = "https://github.com/cs2764/txt-to-epub"
 
 # Build information
 __build_date__ = "2025-01-26"

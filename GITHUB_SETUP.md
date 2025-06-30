@@ -28,7 +28,7 @@ git remote add origin https://github.com/YOUR_USERNAME/txt-to-epub.git
 git push -u origin main
 
 # Push the version tag
-git push origin v0.1.0
+git push origin v0.1.2
 ```
 
 **Replace `YOUR_USERNAME` with your actual GitHub username!**
@@ -37,7 +37,7 @@ git push origin v0.1.0
 
 After uploading, your repository should contain:
 - ✅ 14 files including README.md, LICENSE, CHANGELOG.md
-- ✅ Release tag `v0.1.0`
+- ✅ Release tag `v0.1.2`
 - ✅ All installation and cleanup scripts
 - ✅ Complete documentation
 
@@ -67,7 +67,7 @@ txt-to-epub/
 
 ## 🏷️ Release Information
 
-- **Version**: 0.1.0
+- **Version**: 0.1.2
 - **Release Date**: 2025-01-26
 - **License**: MIT
 - **Python**: 3.10+
@@ -97,8 +97,8 @@ txt-to-epub/
 
 1. **Create a Release**:
    - Go to your repository → Releases → "Create a new release"
-   - Choose tag `v0.1.0`
-   - Title: "Initial Release v0.1.0"
+   - Choose tag `v0.1.2`
+   - Title: "Release v0.1.2"
    - Copy description from CHANGELOG.md
 
 2. **Update Repository Settings**:
