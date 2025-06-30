@@ -6,6 +6,7 @@ from ebooklib import epub
 from tqdm import tqdm
 import shutil
 import numpy as np
+import socket
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -536,10 +537,55 @@ def create_ui(lang_key):
         )
     return demo
 
-if __name__ == "__main__":
-    app = create_ui("zh") # Start with Chinese as default
+def is_port_in_use(port, host="0.0.0.0"):
+    """检查指定端口是否被占用"""
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(1)
+            result = s.connect_ex((host, port))
+            return result == 0
+    except Exception:
+        return True
+
+def find_available_port(start_port=7860, max_attempts=10):
+    """从指定端口开始寻找可用端口"""
+    for i in range(max_attempts):
+        port = start_port + i
+        if not is_port_in_use(port):
+            return port
+    return None
+
+def launch_app_with_port_detection():
+    """启动应用并自动检测可用端口"""
+    app = create_ui("zh")  # Start with Chinese as default
+    
     print("🚀 Starting TXT to EPUB Converter...")
-    print("📍 Local access: http://localhost:7860")
-    print("🌐 Network access: http://0.0.0.0:7860")
+    
+    # 尝试找到可用端口
+    available_port = find_available_port(7860, 10)
+    
+    if available_port is None:
+        print("❌ Error: Could not find an available port (tried 7860-7869)")
+        print("💡 Please close other applications using these ports and try again.")
+        return
+    
+    if available_port != 7860:
+        print(f"⚠️  Port 7860 is in use, using port {available_port} instead")
+    
+    print(f"📍 Local access: http://localhost:{available_port}")
+    print(f"🌐 Network access: http://0.0.0.0:{available_port}")
     print("⚠️  Using local server for better stability")
-    app.launch(inbrowser=True, server_name="0.0.0.0", share=False)
+    
+    try:
+        app.launch(
+            inbrowser=True, 
+            server_name="0.0.0.0", 
+            server_port=available_port,
+            share=False
+        )
+    except Exception as e:
+        print(f"❌ Failed to launch application: {e}")
+        print("💡 Please check if the port is available and try again.")
+
+if __name__ == "__main__":
+    launch_app_with_port_detection()
