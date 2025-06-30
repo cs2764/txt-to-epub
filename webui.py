@@ -561,31 +561,43 @@ def launch_app_with_port_detection():
     
     print("🚀 Starting TXT to EPUB Converter...")
     
-    # 尝试找到可用端口
-    available_port = find_available_port(7860, 10)
+    # 尝试从7860开始寻找可用端口
+    for port in range(7860, 7870):
+        if not is_port_in_use(port):
+            if port != 7860:
+                print(f"⚠️  Port 7860 is in use, using port {port} instead")
+            
+            print(f"📍 Local access: http://localhost:{port}")
+            print(f"🌐 Network access: http://0.0.0.0:{port}")
+            print("⚠️  Using local server for better stability")
+            
+            try:
+                # 对于Gradio 3.50.2，让它自动选择端口或指定端口
+                if port == 7860:
+                    # 如果7860可用，不指定端口让Gradio自动处理
+                    app.launch(
+                        inbrowser=True, 
+                        server_name="0.0.0.0",
+                        share=False
+                    )
+                else:
+                    # 如果需要其他端口，明确指定
+                    app.launch(
+                        inbrowser=True, 
+                        server_name="0.0.0.0", 
+                        server_port=port,
+                        share=False
+                    )
+                return  # 成功启动，退出函数
+            except Exception as e:
+                print(f"❌ Failed to launch on port {port}: {e}")
+                print(f"🔄 Trying next port...")
+                continue
     
-    if available_port is None:
-        print("❌ Error: Could not find an available port (tried 7860-7869)")
-        print("💡 Please close other applications using these ports and try again.")
-        return
-    
-    if available_port != 7860:
-        print(f"⚠️  Port 7860 is in use, using port {available_port} instead")
-    
-    print(f"📍 Local access: http://localhost:{available_port}")
-    print(f"🌐 Network access: http://0.0.0.0:{available_port}")
-    print("⚠️  Using local server for better stability")
-    
-    try:
-        app.launch(
-            inbrowser=True, 
-            server_name="0.0.0.0", 
-            server_port=available_port,
-            share=False
-        )
-    except Exception as e:
-        print(f"❌ Failed to launch application: {e}")
-        print("💡 Please check if the port is available and try again.")
+    # 如果所有端口都失败了
+    print("❌ Error: Could not find an available port (tried 7860-7869)")
+    print("💡 Please close other applications using these ports and try again.")
+    print("🔧 You can also try running: python webui.py --server-port 8080")
 
 if __name__ == "__main__":
     launch_app_with_port_detection()

@@ -5,6 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-01-27
+
+### Added
+- **🔌 Automatic Port Detection**: Smart port management for better user experience
+  - Automatically detects if port 7860 is in use
+  - Falls back to ports 7861-7869 if needed
+  - Clear status messages showing which port is being used
+  - Enhanced error handling with helpful suggestions
+- **🛠️ Improved Launch Logic**: Enhanced application startup process
+  - Better compatibility with Gradio 3.50.2 port handling
+  - Graceful fallback when ports are occupied
+  - User-friendly error messages and troubleshooting tips
+
+### Fixed
+- **🐛 Port Conflict Resolution**: Resolved issues when default port 7860 is busy
+  - Fixed Gradio server_port parameter handling
+  - Improved socket-based port availability checking
+  - Better error recovery and user feedback
+- **🔧 Launch Stability**: Enhanced application startup reliability
+  - More robust port detection algorithm
+  - Better exception handling during launch
+  - Clearer user guidance for port-related issues
+
+### Enhanced
+- **💬 User Communication**: Improved startup messages and feedback
+  - Real-time port status updates
+  - Clear access URLs with actual port information
+  - Better error explanations and next-step suggestions
+- **🔍 Debug Information**: Enhanced troubleshooting capabilities
+  - More detailed error messages
+  - Port range information in error cases
+  - Alternative launch suggestions
+
+### Technical
+- **Socket Integration**: Added socket module for network port checking
+- **Port Range**: Supports automatic fallback across ports 7860-7869
+- **Gradio Compatibility**: Optimized for Gradio 3.50.2 limitations
+- **Error Recovery**: Improved exception handling and user guidance
+
+---
+
 ## [0.1.2] - 2025-01-26
 
 ### Fixed

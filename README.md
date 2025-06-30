@@ -31,6 +31,7 @@ This is a powerful and intelligent tool for converting plain text (`.txt`) files
 *   **Chapter Preview:** Before converting, you can preview the chapters that the detection engine has found to ensure accuracy.
 *   **Metadata Support:** Add author information and a cover image to your generated EPUB files.
 *   **Flexible Output:** Save converted files to a default `epub_output` folder, specify a custom directory, or save directly to the source file location with automatic fallback for network drives and protected directories.
+*   **Smart Port Management:** Automatic port detection and fallback (7860-7869) for seamless startup even when ports are busy.
 *   **Web Interface:** Easy-to-use interface that runs locally and can be accessed from other devices on your network.
 
 ## How to Use
@@ -96,13 +97,22 @@ These scripts will automatically:
    - If you encounter this, simply run the script again
    - The environment creation and activation logic has been improved
 
-2. **Port 7860 already in use**
-   - Close other Gradio applications or restart your computer
-   - The application will automatically try alternative ports
+2. **Port 7860 already in use (Auto-Fixed in v0.1.3+)**
+   - ✅ **Automatic Detection**: The application now automatically detects port conflicts
+   - ✅ **Smart Fallback**: Automatically tries ports 7861-7869 if 7860 is busy
+   - ✅ **Clear Messages**: Shows which port is being used with full access URLs
+   - 🔧 **Manual Override**: You can also specify a custom port with environment variable `GRADIO_SERVER_PORT`
+   - 💡 **Still Having Issues?**: Close other Gradio applications or restart your computer
 
 3. **Permission errors on network drives**
    - Use the "Save to Source File Location" option with caution
    - The application will automatically fallback to default output directory
+
+4. **Application won't start - All ports busy**
+   - The application tries ports 7860-7869 automatically
+   - Close applications using these ports (check with `netstat -an | findstr 786` on Windows)
+   - Alternative: Set `GRADIO_SERVER_PORT=8080` environment variable for a different port
+   - Restart your computer if needed to free up ports
 
 3.  **Using the Interface:**
     *   **Upload Files:** Drag and drop your `.txt` files into the upload area.
@@ -116,7 +126,7 @@ These scripts will automatically:
 
 ## Version
 
-*   Current Version: 0.1.2
+*   Current Version: 0.1.3
 
 ---
 
