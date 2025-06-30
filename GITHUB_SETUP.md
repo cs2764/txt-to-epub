@@ -22,7 +22,7 @@ Copy and paste these commands in your terminal:
 
 ```bash
 # Add the GitHub repository as remote origin
-git remote add origin https://github.com/YOUR_USERNAME/txt-to-epub.git
+git remote add origin https://github.com/cs2764/txt-to-epub.git
 
 # Push your code to GitHub
 git push -u origin main
